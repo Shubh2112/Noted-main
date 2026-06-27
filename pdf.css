@@ -1,151 +1,233 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    overflow: hidden;
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    background:#070b17;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.bg-animation {
-    position: fixed;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    animation:float 12s infinite ease-in-out;
+}
+
+.blob1{
+    width:350px;
+    height:350px;
+    background:#2563eb;
+    top:-80px;
+    left:-80px;
+}
+
+.blob2{
+    width:300px;
+    height:300px;
+    background:#06b6d4;
+    right:-50px;
+    top:20%;
+    animation-delay:2s;
+}
+
+.blob3{
+    width:280px;
+    height:280px;
+    background:#8b5cf6;
+    bottom:-50px;
+    left:40%;
+    animation-delay:4s;
+}
+
+.container{
+    position:relative;
+    z-index:5;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:20px;
+}
+
+.card{
+    width:420px;
+    max-width:95vw;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:32px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.45);
+
+    animation:cardEntry .8s ease;
+}
+
+.pdf-icon{
+    font-size:85px;
+    margin-bottom:15px;
+    animation:bounce 4s infinite;
+}
+
+.tag{
+    display:inline-block;
+    color:white;
+    font-size:12px;
+    letter-spacing:2px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    margin-bottom:20px;
+}
+
+h1{
+    color:white;
+    font-size:28px;
+    line-height:1.3;
+    margin-bottom:15px;
+}
+
+p{
+    color:#d1d5db;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.pdf-link{
+    display:block;
+    margin-bottom:28px;
+
+    color:#7dd3fc;
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.pdf-link:hover{
+    color:white;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+
+    padding:15px 42px;
+
+    font-size:16px;
+    font-weight:600;
+
+    color:white;
+
+    border-radius:999px;
+
     background:
-        radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(6,182,212,0.4) 0%, transparent 40%),
-        radial-gradient(circle at 40% 80%, rgba(139,92,246,0.4) 0%, transparent 40%);
-    animation: moveBg 12s ease-in-out infinite alternate;
-    z-index: 0;
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4
+    );
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,.4);
+
+    transition:.3s;
 }
 
-.container {
-    position: relative;
-    z-index: 1;
+button:hover{
+    transform:
+    translateY(-3px)
+    scale(1.04);
+
+    box-shadow:
+    0 18px 35px rgba(37,99,235,.55);
 }
 
-.card {
-    width: 360px;
-    padding: 35px;
-    text-align: center;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 24px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-    animation: fadeIn 0.8s ease;
+button:active{
+    transform:scale(.96);
 }
 
-.pdf-icon {
-    font-size: 70px;
-    margin-bottom: 15px;
-    animation: floatIcon 3s ease-in-out infinite;
-}
+@keyframes float{
 
-.badge {
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 50px;
-    background: rgba(255,255,255,0.15);
-    color: white;
-    font-size: 13px;
-    margin-bottom: 15px;
-}
-
-h1 {
-    color: white;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-p {
-    color: #d1d5db;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-#pdfLink {
-    display: block;
-    margin-bottom: 25px;
-    color: #60a5fa;
-    text-decoration: none;
-    word-break: break-word;
-}
-
-#pdfLink:hover {
-    text-decoration: underline;
-}
-
-button {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 35px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background: linear-gradient(135deg, #3b82f6, #06b6d4);
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    transform: translateY(-3px) scale(1.05);
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-@keyframes floatIcon {
-    0% {
-        transform: translateY(0);
+    0%{
+        transform:translateY(0);
     }
-    50% {
-        transform: translateY(-10px);
+
+    50%{
+        transform:translateY(-50px);
     }
-    100% {
-        transform: translateY(0);
+
+    100%{
+        transform:translateY(0);
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    50%{
+        transform:translateY(-12px);
     }
 }
 
-@keyframes moveBg {
-    from {
-        transform: scale(1) rotate(0deg);
+@keyframes cardEntry{
+
+    from{
+        opacity:0;
+        transform:
+        translateY(30px)
+        scale(.95);
     }
-    to {
-        transform: scale(1.15) rotate(5deg);
+
+    to{
+        opacity:1;
+        transform:
+        translateY(0)
+        scale(1);
     }
 }
 
-@media (max-width: 450px) {
-    .card {
-        width: 90vw;
-        padding: 25px;
+@media(max-width:500px){
+
+    .card{
+        padding:30px 22px;
     }
 
-    h1 {
-        font-size: 20px;
+    h1{
+        font-size:22px;
+    }
+
+    .pdf-icon{
+        font-size:70px;
     }
 }
